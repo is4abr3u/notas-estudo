@@ -1,8 +1,8 @@
 # notas-estudo
 minhas notas de estudo do técnico senac 2026
 
-markdown
 
+markdown
 
 ## Configurndo git 
 
@@ -38,8 +38,32 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
  para inicializar o agente-ssh digite:
 
  ```bash
- eval"$(ssg-agent -s)"
+ eval "$(ssg-agent -s)"
 ```
 agora adicione a chave ssh ao agente, com este código:
 
+```bash
+ssh-add ~/.ssh/id_ed25519
 ```
+para copiar a chave ssh digite:
+```bash
+clip < ~/.ssh/id_ed255519.pub
+```
+## Adicionando a chave no github
+
+Primeiro acese o gitbub no seu navegador, e entre na sua conta do github(nessa conta deve constr o mesmo email que voce programou) Depois entre em settings, depois entre em SSH and GPG key, e em seguida clique em colar, coloque um titulo e identifique a chave (interessante colocar o local fisico onde a chave está, poe exemplo: senac-sala-106)
+
+markdown
+
+## Atalhos 
+
+```bash
+
+contol + d = seleciona todas as palavaras iguais de um qrquivo se eu quiser mudar
+control + k + control +o = abre a pasta de arquivos para salvar as notas 
+control + c = copiar 
+control + v = colar 
+control + z = desfazer a última ação realizada 
+control + s = salvar anotações desde de a última alterção
+
+##
