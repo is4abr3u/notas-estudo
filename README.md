@@ -175,7 +175,9 @@ $ ^C
 isadora61190376@JLE106D060741 MINGW64 ~/Documents/Outrorepo (main)
 $
 
-// ---------------------SOBRE REACT------------------//
+##SOBRE REACT 
+```bash
+---------------------------------------
 
 npm create vite@latest
 
@@ -186,28 +188,32 @@ selecione javascript
 selecione yes
 depois faz: npm install 
 e dps: npm run dev 
-agora crie a pasta componentes
+agora crie a pasta componentes,essa pasta vai dentro do src e dentro do assets 
+
+LEMBRANDO QUE O REACT TEM MUITAS PASTAS, ENTAO FECHA AS QUE VOCE NAO ESTÁ USANDO, NAO VAI SE CONFUNDIR ISADORAAAAA
 
 faça 3 pastas dentro- footer/list/header
 
-import './style.css'
+import './style.css' -> isso tem que ser a primeira coisa que vc faz em qualuqer arquivo
 
 function Footer() {
     return (
-      <footer id='Footer'>
+    <> -> coloca sempre essa tag e fecha ela, ela é importante, nao lembro extamente pra que 
+      <footer id='Footer'> -> esse id serve p gnt puxar o footer no 
         <p>Minha primeira API react - &copy; Todos os direitos reservado</p>
       </footer>
+      </> -> fecha a tag aq
     )
 }
-export default Footer
+export default Footer -> nao esquece de exportar, se importou, tem que exportar. mas no caso aqui voce presica exportar a function
 
-na pasta list
+na pasta list é o mesmo que o footer, mas aqui tem mais coisas
 
 import './style.css'
 
 function Section({
   title, 
-  subtitleSecondList
+  subtitleSecondList -> aparentemente é como se vc tivesse crianod uma const
 }) {
   return (
     <section>
@@ -217,14 +223,14 @@ function Section({
         {subtitleSecondList }
       </h3> 
 
-      <ul id="ul">
+      <ul id="ul"> -> esse ul é pra lista nao ordenanda 
         <li>Brownie</li>
         <li>Bolo de cenoura</li>
         <li>Kiner Bueno white</li>
       </ul>
 
-      <h3>Coisas que eu mais gosto de fazer em casa:</h3>
-      <ol>
+      <h3>Coisas que eu mais gosto de fazer em casa:</h3> 
+      <ol> -> esse ol é pra lista ordenada 
         <li>Tomar banho e ficar cheirosa</li>
         <li>Comer</li>
         <li>Dormir</li>
@@ -235,10 +241,37 @@ function Section({
 }
 export default Section
 
-in pages/ about 
+NO HEADER VAI SER QUASE A MESMA COISA DO FOOTER, VEJA BEM ...
+
+import './style.css'
+
+function Header() {
+    return (
+       <>
+       <header>
+            <h1> exemplo de react</h1>
+        </header>
+       
+        </>
+    )
+}
+export default Header
+
+essas paginas (header, footer e list) tem dentro delas index.jsx(onde se realiza todos os movimentos anteriores) e outro arquivo style.css
+
+AGORA É OUTRA COISA, PRESTA ATENÇÃO!!!!!!!
+
+depois a gnt cria outra pasta, 
+mas dai o nome é pages, e o simbolo tbm é diferente
+vc vai saber quando der certo, essa pasta vai dentro do src e fora do assets 
+AI DENTRO DESSA PASTA PAGES VAI TER MAIS PASTAS (home, about, e signup)
+
+essa é a pagina about e ela completinha fica assim:
 
 import { Link } from 'react-router-dom'
 import './style.css'
+
+
 
 function About() {
     return (
@@ -283,7 +316,7 @@ function App() {
 
 export default App
 
-in pages/signup
+dentro da pasta pages, a pasta sing up
 
 import { useState } from "react";
 import "./style.css";
@@ -331,7 +364,7 @@ setResultado(nome);
 }
 export default Singup
 
-in pages/ home
+na pasta pages, na pasta home, essa é bem trqnuila graças a Deus. O que pega é omainj.jsx e o app.jsx, mas primeiro olha essa aq. 
 
 import { Link } from 'react-router-dom'
 import './style.css'
@@ -349,4 +382,41 @@ function Home() {
 
 export default Home
 
+no app.jsx, preta atenção
+
+import './App.css'
+import { Route } from 'react-router-dom'-> PRA ESSA IMPORTAÇÃO FUNCIONAR VAI NO TERMINALE COLOCA O COMANDO : npm i react-router-dom
+import { Routes } from 'react-router-dom'-> parte de importação, QUE EU JA DISSE QUE É IMPORTANTE
+
+function App() {
+
+  return (
+    <> 
+    <Routes> -> rota pra poder funcionar e o site te levar p uma pagina diferente dependendo doq vc escrever na parte de por a url 
+      <Route path='/' element= {<Home/>}/> -> nesse caso vc escreve / no final da url e ele te leva p pagina home
+      <Route path='/exercicio1' element= {<exercicio1/>}/>-> nesse caso vc escreve /exercicio1 no final da url e ele te leva p pagina exercicio1
+    </Routes>
+    </>
+  )
+}
+export default App
+
+
+no main.jsx, preta mais atenção ainda
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import { BrowserRouter } from 'react-router-dom'-> fazer todas essas importações é muito importante, DA TEU JEITO DE LEMBRAR, SE NAO LEMBRAR DE TODAS CHORA MSM :(
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <BrowserRouter>-> isso é o que tu ativou quando botou o rect router dom no terminal (eu acho)
+    <App />
+    </BrowserRouter>
+  </StrictMode>, -> esse mode é o que deixa as coisas funcionar NAO ESQUECE DELE 
+)
+
+TEM MAIS ALGUMA COISA SON=BRE AQULES ARQUIVOS JSON, MAS EU REAL NAO LEMBRO 
  
